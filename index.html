@@ -227,6 +227,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/toString&valueOf/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JosephLau">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liugp's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/toString&valueOf/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T17:30:43+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="toString-amp-valueOf"><a href="#toString-amp-valueOf" class="headerlink" title="toString&amp;valueOf"></a>toString&amp;valueOf</h2><p>各个基本类型和常用对象<code>toString</code>和<code>valueOf</code>方法的使用如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// undefined和null无法使用toString和valueOf方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> num = <span class="number">666</span></span><br><span class="line">num.toString() 	<span class="comment">// "666"	返回指定 Number 对象的字符串表示形式</span></span><br><span class="line">num.valueOf()	<span class="comment">// 666		返回一个被 Number 对象包装的原始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = <span class="literal">true</span></span><br><span class="line">res.toString()	<span class="comment">// "true" 	返回指定的布尔对象的字符串形式</span></span><br><span class="line">res.valueOf()	<span class="comment">// true		返回一个Boolean对象的原始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'测试'</span>				</span><br><span class="line">str.toString() 	<span class="comment">// "测试"	   返回指定对象的字符串形式</span></span><br><span class="line">str.valueOf()	<span class="comment">// "测试"	   返回一个String对象的原始值（primitive value）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">arr.toString()	<span class="comment">// "1, 2, 3" 返回一个字符串，表示指定的数组及其元素</span></span><br><span class="line">arr.valueOf()	<span class="comment">// [1, 2, 3]  返回指定对象的原始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">obj.toString()	<span class="comment">// "[object Object]"  返回一个表示该对象的字符串</span></span><br><span class="line">obj.valueOf()	<span class="comment">// &#123;&#125;	返回指定对象的原始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> func = <span class="function">(<span class="params">param</span>) =&gt;</span> &#123;<span class="keyword">return</span> param&#125;</span><br><span class="line">func.toString()	<span class="comment">// "(param) =&gt; &#123;return param&#125;"	返回一个表示当前函数源代码的字符串</span></span><br><span class="line">func.valueOf() 	<span class="comment">// (param) =&gt; &#123;return param&#125;	返回指定对象的原始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">date.toString()	<span class="comment">// "Thu Aug 29 2019 14:37:01 GMT+0800 (中国标准时间)"  返回时间字符串</span></span><br><span class="line">date.valueOf()  <span class="comment">// 1567060621000   返回timestamp</span></span><br></pre></td></tr></table></figure>
+<p>单纯的<code>toString</code>函数本身的调用貌似并没有什么卵用，常见的重要作用主是以下两点：</p>
+<h4 id="函数调用时，toString和valueOf函数会被隐式调用"><a href="#函数调用时，toString和valueOf函数会被隐式调用" class="headerlink" title="函数调用时，toString和valueOf函数会被隐式调用"></a><strong>函数调用时，toString和valueOf函数会被隐式调用</strong></h4><p>写这篇文章的起因是下面这道题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现一个函数，完成下面的功能</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)(<span class="number">2</span>)(<span class="number">3</span>))	<span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<p>一看见题目，大概的解题思路就有了。首先想实现链式调用，返回值本身一定是一个函数，使用闭包把求和的值缓存起来即可，秒写下面的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> sum = num</span><br><span class="line">	<span class="keyword">let</span> fn = <span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</span><br><span class="line">		sum += a</span><br><span class="line">		<span class="keyword">return</span> fn</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际运行后，发现事情并没有这么简单，无论怎样调用，打印出来的结果都是一个函数，并不能打印出题目要求的结果。而实际答案大概是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> sum = num</span><br><span class="line">	<span class="keyword">let</span> fn = <span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</span><br><span class="line">		sum += a</span><br><span class="line">		<span class="keyword">return</span> fn</span><br><span class="line">	&#125;</span><br><span class="line">    fn.toString = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>引用MDN上描述</p>
+<p>toString: </p>
+<blockquote>
+<p>每个对象都有一个 <code>toString()</code> 方法，当该对象被表示为一个文本值时，或者一个对象以预期的字符串方式引用时自动调用。默认情况下，<code>toString()</code> 方法被每个 <code>Object</code> 对象继承。如果此方法在自定义对象中未被覆盖，<code>toString()</code> 返回 “[object <em>type</em>]”，其中 <code>type</code> 是对象的类型。以下代码说明了这一点：</p>
+</blockquote>
+<p>valueOf:</p>
+<blockquote>
+<p>JavaScript调用<code>valueOf</code>方法将对象转换为原始值。你很少需要自己调用<code>valueOf</code>方法；当遇到要预期的原始值的对象时，JavaScript会自动调用它。</p>
+<p>默认情况下，<code>valueOf</code>方法由<code>Object</code>后面的每个对象继承。 每个内置的核心对象都会覆盖此方法以返回适当的值。如果对象没有原始值，则<code>valueOf</code>将返回对象本身。</p>
+<p>JavaScript的许多内置对象都重写了该函数，以实现更适合自身的功能需要。因此，不同类型对象的valueOf()方法的返回值和返回值类型均可能不同。</p>
+</blockquote>
+<p>创建自定义对象时，可以覆盖<code>Object.prototype.valueOf()</code>和<code>Object.prototype.valueOf()</code>来调用自定义方法。</p>
+<p>上面的题目中，console.log参数中的对象，会以字符串形式按顺序依次输出到控制台，所以隐式调用了toString方法。</p>
+<p>如果改动一下代码，涉及到引用类型primitive运算操作，例如出现’ + ‘， ‘ * ‘, ‘ == ‘等运算符，会调用valueOf方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> sum = num</span><br><span class="line">	<span class="keyword">let</span> fn = <span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</span><br><span class="line">		sum += a</span><br><span class="line">		<span class="keyword">return</span> fn</span><br><span class="line">	&#125;</span><br><span class="line">    fn.toString = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        alert(<span class="string">''</span>)</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    &#125;</span><br><span class="line">    fn.valueOf = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        alert(<span class="string">'valueOf'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ++ fn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用Object-prototype-toString判断数据类型"><a href="#使用Object-prototype-toString判断数据类型" class="headerlink" title="使用Object.prototype.toString判断数据类型"></a>使用<code>Object.prototype.toString</code>判断数据类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;  </span><br><span class="line">obj.toString() <span class="comment">//"[object Object]"</span></span><br></pre></td></tr></table></figure>
+<p>MDN:</p>
+<blockquote>
+<p>每个对象都有一个 <code>toString()</code> 方法，当该对象被表示为一个文本值时，或者一个对象以预期的字符串方式引用时自动调用。默认情况下，<code>toString()</code> 方法被每个 <code>Object</code> 对象继承。如果此方法在自定义对象中未被覆盖，<code>toString()</code> 返回 “[object <em>type</em>]”，其中 <code>type</code> 是对象的类型。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = []</span><br><span class="line"><span class="built_in">Object</span>.toString.call(arr)	<span class="comment">// "[object Array]"</span></span><br></pre></td></tr></table></figure>
+<p>附上seajs中的类型判断封装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;.toString.call(obj) == <span class="string">"[object "</span> + type + <span class="string">"]"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isObject = isType(<span class="string">"Object"</span>)</span><br><span class="line"><span class="keyword">var</span> isString = isType(<span class="string">"String"</span>)</span><br><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">Array</span>.isArray || isType(<span class="string">"Array"</span>)</span><br><span class="line"><span class="keyword">var</span> isFunction = isType(<span class="string">"Function"</span>)</span><br><span class="line"><span class="keyword">var</span> isUndefined = isType(<span class="string">"Undefined"</span>)</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/20/如何使用slice/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -389,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
